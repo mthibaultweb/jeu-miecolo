@@ -24,6 +24,7 @@ class Scene12 extends Phaser.Scene {
         // Create ennemies
       
         // Add player
+        let player;
         player = this.add.sprite(200, 500, 'player');
         // player.setCollideWorldBounds(true);
       

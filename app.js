@@ -7,16 +7,17 @@ var config = {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    // physics: {
-    //     default: "arcade",
-    //     arcade: {
-    //         debug: false,
-    //     }
-    // },
-    scene: [Scene1, Scene2, Scene3, Scene4]
+    physics: {
+      default: 'arcade',
+      arcade: {
+        gravity: {
+          y: 0
+        },
+      }
+    },
+    scene: [Scene12, Scene13, Scene1, Scene2, Scene3, Scene4]
 };
 
-var game = new Phaser.Game(config);
 
-var cursors;
-var player;
+
+const game = new Phaser.Game(config);
