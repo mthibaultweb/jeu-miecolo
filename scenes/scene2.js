@@ -16,9 +16,10 @@ class Scene2 extends Phaser.Scene {
         
         const button = new Button(40, 480, 0, 0, "Enregistrer", this, () => {
             var inputUsername = this.element.getChildByName('username');
-            if (inputUsername.value !== '')
+            if (inputUsername.value !== null)
             {
                 userName = inputUsername.value;
+                localStorage.setItem('userName', userName);
                 this.scene.start("sceneThree");
             }
             else

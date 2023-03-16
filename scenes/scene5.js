@@ -19,7 +19,7 @@ class Scene5 extends Phaser.Scene {
         const text2 = new Text(50, 80, 0, 0, 'Voici ta ruche avec sa balance connectée !', this);
         
         const button = new Button(40, 500, 0, 0, 'Continuer', this, () => this.scene.start("sceneSix"));
-        if(userMail !== '') {
+        if(userMail !== null) {
             const button = new Button(200, 500, 0, 0, 'Passer', this, () => this.scene.start("sceneNine"));
         }
     }

@@ -20,6 +20,7 @@ class Scene20 extends Phaser.Scene {
             if (inputUsermail.value !== '' && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(inputUsermail.value))
             {
                     userMail = inputUsermail.value;
+                    localStorage.setItem('userMail', userMail);
                     this.scene.start("sceneTwentyOne");
             } else {
                 const alert = new Text(40, 350, 0, 0, 'Écris une adresse e-mail valide pour continuer', this, 'alert');

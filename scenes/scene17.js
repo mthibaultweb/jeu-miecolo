@@ -55,5 +55,8 @@ class Scene17 extends Phaser.Scene {
         const text3 = new Text(50, 120, 0, 0, 'Mais qu\’en est-il de l\’humidité ?', this);
         
         const button = new Button(40, 500, 0, 0, 'Continuer', this, () => this.scene.start("sceneEighteen"));
+        if(userMail !== null) {
+            const button = new Button(200, 500, 0, 0, 'Mon score', this, () => this.scene.start("sceneTwentyOne"));
+        }
     }
 }

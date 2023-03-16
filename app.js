@@ -43,5 +43,6 @@ var config = {
       Scene21,
     ]
 };
-
+console.log('userName ',localStorage.getItem('userName'));
+console.log('userMail ',localStorage.getItem('userMail'));
 const game = new Phaser.Game(config);

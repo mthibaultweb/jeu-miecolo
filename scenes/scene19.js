@@ -54,7 +54,7 @@ class Scene19 extends Phaser.Scene {
         const text1 = new Text(50, 50, 0, 0, 'Bon ! et bien tout a l\’air parfait,', this);
         const text2 = new Text(50, 80, 0, 0, 'nous pouvons passer à la récolte !', this);
         
-        if(userMail !== '') {
+        if(userMail !== null) {
             this.nextScene = 'sceneTwentyOne';
         } else {
             this.nextScene = 'sceneTwenty';

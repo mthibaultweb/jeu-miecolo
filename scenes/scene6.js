@@ -49,7 +49,7 @@ class Scene6 extends Phaser.Scene {
         const text5 = new Text(50, 180, 0, 0, '- et les Données GPS', this);
         
         const button = new Button(40, 500, 0, 0, 'Continuer', this, () => this.scene.start("sceneSeven"));
-        if(userMail !== '') {
+        if(userMail !== null) {
             const button = new Button(200, 500, 0, 0, 'Passer', this, () => this.scene.start("sceneNine"));
         }
     }
