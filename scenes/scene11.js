@@ -37,5 +37,8 @@ class Scene11 extends Phaser.Scene {
         const text4 = new Text(50, 180, 0, 0, this.desc3, this);
         
         const button = new Button(40, 500, 0, 0, this.btnText, this, () => this.scene.start(this.nextScene));
+        if(userMail !== '' && gameOver == false) {
+            const button = new Button(200, 500, 0, 0, 'Passer', this, () => this.scene.start("sceneFifteen"));
+        }
     }
 }

@@ -13,7 +13,7 @@ class Scene1 extends Phaser.Scene {
         this.scene.varJP      
         const button = new Button(400, 500, 0.5, 0.5, 'Jouer', this, () => {
             if(userName !== '') {
-                this.scene.start("sceneThree", this.score)
+                this.scene.start("sceneFive", this.score)
             } else {
                 this.scene.start("sceneTwo", this.score)
             }

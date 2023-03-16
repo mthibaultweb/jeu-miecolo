@@ -15,9 +15,12 @@ class Scene5 extends Phaser.Scene {
         this.guide = this.add.image(350, 265, 'happy').setOrigin(0,0);
 
 
-        const text1 = new Text(50, 50, 0, 0, 'Parfait ! Tu vas voir, c\’est simple comme bonjour !', this);
+        const text1 = new Text(50, 50, 0, 0, 'Tu vas voir, c\’est simple comme bonjour !', this);
         const text2 = new Text(50, 80, 0, 0, 'Voici ta ruche avec sa balance connectée !', this);
         
         const button = new Button(40, 500, 0, 0, 'Continuer', this, () => this.scene.start("sceneSix"));
+        if(userMail !== '') {
+            const button = new Button(200, 500, 0, 0, 'Passer', this, () => this.scene.start("sceneNine"));
+        }
     }
 }

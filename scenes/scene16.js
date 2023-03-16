@@ -26,5 +26,8 @@ class Scene16 extends Phaser.Scene {
         const text4 = new Text(50, 180, 0, 0, this.desc3, this);
         
         const button = new Button(40, 500, 0, 0, this.btnText, this, () => this.scene.start('sceneSeventeen'));
+        if(userMail !== '') {
+            const button = new Button(200, 500, 0, 0, 'Mon score', this, () => this.scene.start("sceneTwentyOne"));
+        }
     }
 }
