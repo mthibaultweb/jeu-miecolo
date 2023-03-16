@@ -14,19 +14,19 @@ class Scene3 extends Phaser.Scene {
         
         const button1 = new Button(40, 300, 0, 0, '\"Je ne m\'y connais pas du tout\"', this, () => {
             apiLevel = 1;
-            this.scene.start("sceneFour")
+            this.scene.start("sceneFour");
         });
         const button2 = new Button(40, 360, 0, 0, '\"Je débute\"', this, () => {
             apiLevel = 2;
-            this.scene.start("sceneFour")
+            this.scene.start("sceneFour");
         });
         const button3 = new Button(40, 420, 0, 0, '\"Je suis amateur\"', this, () => {
             apiLevel = 3;
-            this.scene.start("sceneFour")
+            this.scene.start("sceneFour");
         });
         const button4 = new Button(40, 480, 0, 0, '\"Je suis un professionnel\"', this, () => {
             apiLevel = 4;
-            this.scene.start("sceneFour")
+            this.scene.start("sceneFour");
         });
     }
 }

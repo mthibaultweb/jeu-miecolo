@@ -22,8 +22,6 @@ class Scene10 extends Phaser.Scene {
       
       create() {
         
-        let bee;
-        let cursors;
         this.tabFrelon = [];
         let nbFrelon = 2;
 
@@ -80,13 +78,15 @@ class Scene10 extends Phaser.Scene {
         // bee collect polens on collision
         function collectpolen(bee, polen) {
           polen.disableBody(true, true);
-          this.score += Phaser.Math.Between(1, 1);
+          score += Phaser.Math.Between(1, 1);
           this.scoreText.setText('Score: ' + score);
           this.spacebarLength++;
           if (this.spacebarLength === 5) {
             this.physics.pause();
             this.bee.setTint(0xff0000);
-            this.gameOver = true;
+            gameOver = false;
+            console.log(gameOver);
+            this.scene.start("sceneEleven");
           }
         }
 
@@ -107,7 +107,9 @@ class Scene10 extends Phaser.Scene {
           this.physics.pause();
           b.setTint(0xff0000);
           // b.anims.play('turn');
-          this.gameOver = true;
+          gameOver = true;
+          console.log(gameOver);
+          this.scene.start("sceneEleven");
         }
       
         // bee add objects' interactions
