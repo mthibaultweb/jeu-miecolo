@@ -4,8 +4,12 @@ var config = {
     height: 600,
     backgroundColor: '#FFFCF4',
     scale: {
-        mode: Phaser.Scale.FIT,
-        autoCenter: Phaser.Scale.CENTER_BOTH
+      mode: Phaser.Scale.FIT,
+      autoCenter: Phaser.Scale.CENTER_BOTH
+    },
+    parent: 'phaser-jeu',
+    dom: {
+      createContainer: true
     },
     physics: {
       default: 'arcade',
@@ -15,9 +19,20 @@ var config = {
         },
       }
     },
-    scene: [Scene13, Scene12, Scene1, Scene2, Scene3, Scene4]
+    scene: [
+      Scene1,
+      Scene2,
+      Scene3,
+      Scene4,
+      Scene5,
+      Scene6,
+      Scene7,
+      Scene8,
+      Scene9,
+      Scene10,
+      Scene11,
+      Scene13
+    ]
 };
-
-
 
 const game = new Phaser.Game(config);
