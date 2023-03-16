@@ -12,7 +12,7 @@ class Scene5 extends Phaser.Scene {
         this.background = this.add.image(0, 0, 'background').setOrigin(0,0);
         this.synthe = this.add.image(25, 25, 'synthe').setOrigin(0,0).setScale(1,0.5);
         this.ruche = this.add.image(150, 300, 'ruche').setOrigin(0,0).setScale(0.4);
-        this.guide = this.add.image(400, 265, 'happy').setOrigin(0,0);
+        this.guide = this.add.image(350, 265, 'happy').setOrigin(0,0);
 
 
         const text1 = new Text(50, 50, 0, 0, 'Parfait ! Tu vas voir, c\’est simple comme bonjour !', this);

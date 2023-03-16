@@ -7,7 +7,7 @@ class Scene3 extends Phaser.Scene {
     }
     create() {
         
-        this.guide = this.add.image(400, 265, 'happy').setOrigin(0,0);
+        this.guide = this.add.image(350, 265, 'happy').setOrigin(0,0);
         this.welcome
         const text1 = new Text(40, 150, 0, 0, 'Bonjour '+userName+', heureux de faire ta connaissance !', this);
         const text2 = new Text(40, 200, 0, 0, 'Dis-moi, quel est ton niveau en apiculture ?', this);

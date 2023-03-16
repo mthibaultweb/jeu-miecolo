@@ -39,7 +39,7 @@ class Scene8 extends Phaser.Scene {
         const GPS = new Text(720, 393, 0.5, 0, 'R.A.S.', this);
         
         this.overlay = this.add.image(0, 0, 'overlay').setOrigin(0,0);
-        this.guide = this.add.image(400, 265, 'happy').setOrigin(0,0);
+        this.guide = this.add.image(350, 265, 'happy').setOrigin(0,0);
 
         this.barrePoids = this.add.image(635, 105, 'barre').setOrigin(0,0);
         this.jaugePoids = this.add.image(620, 50, 'jaugePoids').setOrigin(0,0);

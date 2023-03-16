@@ -13,9 +13,8 @@ class Scene9 extends Phaser.Scene {
         this.background = this.add.image(0, 0, 'backgroundHerbe').setOrigin(0,0);
         this.overlay = this.add.image(0, 0, 'overlay').setOrigin(0,0);
         this.synthe = this.add.image(25, 25, 'synthe').setOrigin(0,0).setScale(1,1.35);
-        this.fleches = this.add.image(50, 200, 'fleches').setOrigin(0,0)
-        this.guide = this.add.image(400, 265, 'happy').setOrigin(0,0);
-
+        this.fleches = this.add.image(142, 200, 'fleches').setOrigin(0,0)
+        this.guide = this.add.image(350, 265, 'happy').setOrigin(0,0);
 
         const text1 = new Text(50, 50, 0, 0, 'Objectif :', this, 'title');
         const text2 = new Text(50, 100, 0, 0, 'Contrôle l\'abeille avec les flèches directionnelles', this);

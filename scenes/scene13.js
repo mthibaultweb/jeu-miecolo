@@ -4,7 +4,7 @@ class Scene13 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('bg', 'assets/images/bg/Desktop-24.png');
+    this.load.image('backgroundAlveole', 'assets/images/bg/fond-jeu-alveoles.png');
     this.load.image('rond', 'assets/images/sprites/Vector.png');
     this.load.spritesheet('player', 'assets/images/sprites/abeille-animee3.png',
       {
@@ -21,8 +21,8 @@ class Scene13 extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys();
 
     // Add sky
-    this.sprite = this.add.image(400, 300, 'bg');
-    this.sprite.setScale(0.6);
+    this.background = this.add.image(400, 300, 'backgroundAlveole');
+    this.background.setScale(0.6);
 
     // Add ronds
     this.ronds = this.physics.add.group();
@@ -78,8 +78,8 @@ class Scene13 extends Phaser.Scene {
         }
         if (this.spacebarLength === 5) {
           this.physics.pause();
-          this.player.setTint(0xff0000);
-          this.gameOver = true;
+          this.gameOver = false;
+          this.scene.start('sceneSixteen');
         }
       }
     }

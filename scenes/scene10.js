@@ -83,9 +83,7 @@ class Scene10 extends Phaser.Scene {
           this.spacebarLength++;
           if (this.spacebarLength === 5) {
             this.physics.pause();
-            this.bee.setTint(0xff0000);
             gameOver = false;
-            console.log(gameOver);
             this.scene.start("sceneEleven");
           }
         }

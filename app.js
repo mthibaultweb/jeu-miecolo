@@ -31,7 +31,16 @@ var config = {
       Scene9,
       Scene10,
       Scene11,
+      Scene12,
       Scene13,
+      Scene14,
+      Scene15,
+      Scene16,
+      Scene17,
+      Scene18,
+      Scene19,
+      Scene20,
+      Scene21,
     ]
 };
 

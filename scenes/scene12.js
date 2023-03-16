@@ -1,6 +1,6 @@
-class Scene7 extends Phaser.Scene {
+class Scene12 extends Phaser.Scene {
     constructor() {
-        super("sceneSeven");
+        super("sceneTwelve");
     }
     preload() {
         this.load.image('background', 'assets/images/bg/fond-jeu-champ.png');
@@ -46,13 +46,12 @@ class Scene7 extends Phaser.Scene {
         const labelPoids = new Text(720, 20, 0.5, 0, 'Poids', this, 'white');
         const Poids = new Text(720, 63, 0.5, 0, '35kg', this);
 
-        this.synthe = this.add.image(25, 25, 'synthe').setOrigin(0,0).setScale(1,0.65);
+        this.synthe = this.add.image(25, 25, 'synthe').setOrigin(0,0).setScale(1,0.5);
         this.ruche = this.add.image(150, 300, 'ruche').setOrigin(0,0).setScale(0.4);
         
-        const text1 = new Text(50, 50, 0, 0, 'Tiens d’ailleurs, d’après les capteurs,', this);
-        const text2 = new Text(50, 80, 0, 0, 'elle est bien légère. Il ne doit pas y avoir', this);
-        const text3 = new Text(50, 110, 0, 0, 'beaucoup de miel à récolter…', this);
+        const text1 = new Text(50, 50, 0, 0, 'Ah parfait ! Le poids est bien mieux !', this);
+        const text2 = new Text(50, 80, 0, 0, 'Ça veut dire qu\’il y a du miel à récolter !', this);
         
-        const button = new Button(40, 500, 0, 0, 'Continuer', this, () => this.scene.start("sceneEight"));
+        const button = new Button(40, 500, 0, 0, 'Continuer', this, () => this.scene.start("sceneFourteen"));
     }
 }

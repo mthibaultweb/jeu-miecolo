@@ -12,7 +12,7 @@ class Scene11 extends Phaser.Scene {
         this.background = this.add.image(0, 0, 'backgroundHerbe').setOrigin(0,0);
         this.overlay = this.add.image(0, 0, 'overlay').setOrigin(0,0);
         this.synthe = this.add.image(25, 25, 'synthe').setOrigin(0,0).setScale(1,1);
-        this.guide = this.add.image(400, 265, 'happy').setOrigin(0,0);
+        this.guide = this.add.image(350, 265, 'happy').setOrigin(0,0);
 
         if(gameOver == false) {
             this.title = 'Bravo !';

@@ -1,6 +1,6 @@
-class Scene7 extends Phaser.Scene {
+class Scene17 extends Phaser.Scene {
     constructor() {
-        super("sceneSeven");
+        super("sceneSeventeen");
     }
     preload() {
         this.load.image('background', 'assets/images/bg/fond-jeu-champ.png');
@@ -20,21 +20,17 @@ class Scene7 extends Phaser.Scene {
         this.background = this.add.image(0, 0, 'background').setOrigin(0,0);
         
         this.sidebar = this.add.image(560, 0, 'sidebar').setOrigin(0,0);
-        this.barreTemperature = this.add.image(635, 215, 'barre').setOrigin(0,0);
         this.barreHumidite = this.add.image(635, 325, 'barre').setOrigin(0,0);
         this.barreGPS = this.add.image(660, 568, 'barre').setOrigin(0,0);
 
         this.map = this.add.image(588, 404, 'map').setOrigin(0,0);
 
-        this.jaugeTemperature = this.add.image(620, 160, 'jaugeTemperature').setOrigin(0,0);
         this.jaugeHumidite = this.add.image(620, 270, 'jaugeHumidite').setOrigin(0,0);
         this.jaugeGPS = this.add.image(620, 380, 'jaugeGPS').setOrigin(0,0);
         
-        const labelTemperature = new Text(720, 130, 0.5, 0, 'Température', this, 'white');
         const labelHumidite = new Text(720, 240, 0.5, 0, 'Humidité', this, 'white');
         const labelGPS = new Text(720, 350, 0.5, 0, 'Données GPS', this, 'white');
 
-        const Temperature = new Text(720, 173, 0.5, 0, '33°C', this);
         const Humidite = new Text(720, 283, 0.5, 0, '56%', this);
         const GPS = new Text(720, 393, 0.5, 0, 'R.A.S.', this);
         
@@ -46,13 +42,18 @@ class Scene7 extends Phaser.Scene {
         const labelPoids = new Text(720, 20, 0.5, 0, 'Poids', this, 'white');
         const Poids = new Text(720, 63, 0.5, 0, '35kg', this);
 
-        this.synthe = this.add.image(25, 25, 'synthe').setOrigin(0,0).setScale(1,0.65);
+        this.barreTemperature = this.add.image(635, 215, 'barre').setOrigin(0,0);
+        this.jaugeTemperature = this.add.image(620, 160, 'jaugeTemperature').setOrigin(0,0);
+        const labelTemperature = new Text(720, 130, 0.5, 0, 'Température', this, 'white');
+        const Temperature = new Text(720, 173, 0.5, 0, '33°C', this);
+
+        this.synthe = this.add.image(25, 25, 'synthe').setOrigin(0,0).setScale(1,0.7);
         this.ruche = this.add.image(150, 300, 'ruche').setOrigin(0,0).setScale(0.4);
         
-        const text1 = new Text(50, 50, 0, 0, 'Tiens d’ailleurs, d’après les capteurs,', this);
-        const text2 = new Text(50, 80, 0, 0, 'elle est bien légère. Il ne doit pas y avoir', this);
-        const text3 = new Text(50, 110, 0, 0, 'beaucoup de miel à récolter…', this);
+        const text1 = new Text(50, 50, 0, 0, 'Bien joué ! La température de la ruche', this);
+        const text2 = new Text(50, 80, 0, 0, 'est revenue à la normale !', this);
+        const text3 = new Text(50, 120, 0, 0, 'Mais qu\’en est-il de l\’humidité ?', this);
         
-        const button = new Button(40, 500, 0, 0, 'Continuer', this, () => this.scene.start("sceneEight"));
+        const button = new Button(40, 500, 0, 0, 'Continuer', this, () => this.scene.start("sceneEighteen"));
     }
 }

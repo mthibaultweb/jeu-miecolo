@@ -6,7 +6,7 @@ class Scene4 extends Phaser.Scene {
         this.load.image('happy', 'assets/images/sprites/happy.png');
     }
     create() {
-        this.guide = this.add.image(400, 265, 'happy').setOrigin(0,0);
+        this.guide = this.add.image(350, 265, 'happy').setOrigin(0,0);
 
         switch (apiLevel) {
             case 1:
