@@ -24,7 +24,7 @@ class Scene10 extends Phaser.Scene {
         
         let bee;
         let cursors;
-        let tabFrelon = [];
+        this.tabFrelon = [];
         let nbFrelon = 2;
 
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -89,12 +89,12 @@ class Scene10 extends Phaser.Scene {
             this.gameOver = true;
           }
         }
-      
+
         for (var i = 0; i < nbFrelon; i++) {
           var x = (this.bee.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
           var y = (this.bee.y < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
       
-          tabFrelon.push(this.frelons.create(x, y, 'frelon')
+          this.tabFrelon.push(this.frelons.create(x, y, 'frelon')
             .setScale(0.3)
             .setBounce(1)
             .setCollideWorldBounds(true)
@@ -114,26 +114,29 @@ class Scene10 extends Phaser.Scene {
         this.physics.add.collider(this.bee, this.frelons, hitfrelon, null, this);
         this.physics.add.overlap(this.bee, this.polens, collectpolen, null, this);
         this.bee.anims.play('flyBee', true);
-        tabFrelon.forEach(f => {
+        this.tabFrelon.forEach(f => {
           f.anims.play('flyFrelon', true);
         });
       }
       
       update() {
+        this.beeSpeed = 3;
+        this.tabFrelon[0].rotation = this.tabFrelon[0].body.angle+(90*(Math.PI/180));
+        this.tabFrelon[1].rotation = this.tabFrelon[1].body.angle+(90*(Math.PI/180));
         if (this.cursors.left.isDown) {
-            this.bee.x -= 2;
+            this.bee.x -= this.beeSpeed;
             this.bee.angle = -90;
         }
         if (this.cursors.right.isDown) {
-            this.bee.x += 2;
+            this.bee.x += this.beeSpeed;
             this.bee.angle = 90;
         }
         if (this.cursors.up.isDown) {
-            this.bee.y -= 2;
+            this.bee.y -= this.beeSpeed;
             this.bee.angle = 0;
         }
         if (this.cursors.down.isDown) {
-            this.bee.y += 2;
+            this.bee.y += this.beeSpeed;
             this.bee.angle = 180;
         }
         if (this.cursors.down.isDown && this.cursors.left.isDown) {

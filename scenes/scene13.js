@@ -90,7 +90,7 @@ class Scene13 extends Phaser.Scene {
   }
 
   update() {
-    this.beeSpeed = 4;
+    this.beeSpeed = 3;
     if (this.cursors.space.isUp) {
       this.spacebarUp = true;
     }
