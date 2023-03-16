@@ -7,8 +7,16 @@ class Scene1 extends Phaser.Scene {
         this.load.image('btn', 'assets/images/ui/btn-jouer.png');
     }
     create() {
-        const text = new Text(400, 150, 0.5, 0, 'Nom du jeu', this, 'title');
+        const text = new Text(400, 150, 0.5, 0, 'Busy Bees', this, 'title');
 
-        const button = new Button(400, 300, 0.5, 0.5, 'Jouer', this, () => this.scene.start("sceneTwo"));        
+        this.scene.varJP      
+        const button = new Button(400, 300, 0.5, 0.5, 'Jouer', this, () => {
+            if(userName !== '') {
+                this.scene.start("sceneThree", this.score)
+            } else {
+                this.scene.start("sceneTwo", this.score)
+            }
+            
+        }); 
     }
 }

@@ -1,5 +1,6 @@
   class Scene13 extends Phaser.Scene {
-    constructor() {
+
+    constructor(config) {
         super("sceneThirteen");
     }
 

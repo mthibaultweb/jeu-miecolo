@@ -2,10 +2,10 @@ class Button {
     constructor(x, y, originX, originY, label, scene, callback) {
         const button = scene.add.text(x, y, label)
             .setOrigin(originX,originY)
-            .setPadding(10)
+            .setPadding(20, 10)
             .setStyle({
                 backgroundColor: '#FDB833',
-                font: "16px Arial",
+                font: "18px Arial",
                 fill: "black"
             })
             .setInteractive({ useHandCursor: true })
@@ -14,3 +14,4 @@ class Button {
             .on('pointerout', () => button.setStyle({ color: 'black' }));
     }
 }
+

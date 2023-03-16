@@ -1,6 +1,8 @@
+let cursors;
 class Scene12 extends Phaser.Scene {
     constructor() {
         super("sceneTwelve");
+        let player;
     }
 
     preload() {
@@ -14,7 +16,7 @@ class Scene12 extends Phaser.Scene {
     }
 
     create() {
-        // cursors = this.input.keyboard.createCursorKeys();
+        cursors = this.input.keyboard.createCursorKeys();
         // Add sky
         this.background = this.add.image(0, 0, 'sky');
         this.background.setOrigin(0,0);
@@ -24,8 +26,7 @@ class Scene12 extends Phaser.Scene {
         // Create ennemies
       
         // Add player
-        let player;
-        player = this.add.sprite(200, 500, 'player');
+        this.player = this.add.sprite(200, 500, 'player');
         // player.setCollideWorldBounds(true);
       
         // Player animations
@@ -63,16 +64,15 @@ class Scene12 extends Phaser.Scene {
     update() {
         if(cursors.left.isDown) {
             // player.setVelocityX(-150);
-            player.anims.play('left', true);
+            this.player.anims.play('left', true);
+            this.player.x -= 10;
         }else if (cursors.right.isDown) {
             // player.setVelocityX(150);
-            player.anims.play('right', true);
+            this.player.anims.play('right', true);
+            this.player.x += 10;
         }else {
             // player.setVelocityX(0);
-            player.anims.play('still');
-        }
-        if(cursors.up.isDown && player.body.touching.down) {
-            // player.setVelocityY(-300);
+            this.player.anims.play('still');
         }
     }
 }
