@@ -10,8 +10,8 @@ class Button {
             })
             .setInteractive({ useHandCursor: true })
             .on('pointerdown', () => callback())
-            .on('pointerover', () => button.setStyle({ color: 'red' }))
-            .on('pointerout', () => button.setStyle({ color: 'black' }));
+            .on('pointerover', () => button.setStyle({ backgroundColor: 'black', fill: '#FDB833' }))
+            .on('pointerout', () => button.setStyle({ backgroundColor: '#FDB833', fill: "black" }));
     }
 }
 

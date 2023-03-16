@@ -9,7 +9,8 @@ class Scene2 extends Phaser.Scene {
     create() {
         this.guide = this.add.image(400, 265, 'happy').setOrigin(0,0);
 
-        var text = new Text(40, 150, 0, 0, 'Bienvenue dans la colonie ! Je m’appelle Happy, et toi ?', this);
+        var text1 = new Text(40, 150, 0, 0, 'Bienvenue dans la colonie !', this);
+        var text2 = new Text(40, 200, 0, 0, 'Je m\’appelle Happy, et toi ?', this);
         
         this.element = this.add.dom(40, 300).createFromCache('nameform').setOrigin(0,0);
         console.log("this", this);

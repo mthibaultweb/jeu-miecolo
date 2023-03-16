@@ -1,7 +1,7 @@
 let cursors;
-class Scene12 extends Phaser.Scene {
+class Scene10 extends Phaser.Scene {
     constructor() {
-        super("sceneTwelve");
+        super("sceneTen");
         let player;
     }
 
@@ -58,7 +58,7 @@ class Scene12 extends Phaser.Scene {
             }],
             frameRate: 20,
         });
-      
+        const button = new Button(40, 500, 0, 0, 'Arrêter', this, () => this.scene.start("sceneEleven"));
     }
 
     update() {

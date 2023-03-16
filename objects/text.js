@@ -3,7 +3,7 @@ class Text {
         const button = scene.add.text(x, y, label)
             .setOrigin(originX,originY)
             .setStyle({
-                font: "24px Arial",
+                font: "20px Arial",
                 fill: "black"
             })
         switch (type) {
@@ -17,6 +17,11 @@ class Text {
                 button.setStyle({
                     font: "16px Arial",
                     fill: "red"
+                })
+                break;
+            case 'white':
+                button.setStyle({
+                    fill: "white"
                 })
                 break;
         }

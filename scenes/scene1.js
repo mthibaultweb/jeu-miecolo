@@ -5,6 +5,7 @@ class Scene1 extends Phaser.Scene {
     preload() {	
         this.load.image('sky', 'assets/images/bg/sky.png');
         this.load.image('btn', 'assets/images/ui/btn-jouer.png');
+        this.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
     }
     create() {
         const text = new Text(400, 150, 0.5, 0, 'Busy Bees', this, 'title');

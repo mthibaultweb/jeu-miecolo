@@ -31,6 +31,6 @@ class Scene4 extends Phaser.Scene {
         const text2 = new Text(40, 180, 0, 0, this.dialog2, this);
         const text3 = new Text(40, 240, 0, 0, 'Tu es prêt(e) à la découvrir et l’essayer à', this);
         const text4 = new Text(40, 270, 0, 0, 'travers des petits jeux rapides ?', this);
-        const button = new Button(40, 480, 0, 0, 'Bien sûr !', this, () => this.scene.start("sceneFive"));
+        const button = new Button(40, 500, 0, 0, '\"Bien sûr !\"', this, () => this.scene.start("sceneFive"));
     }
 }
