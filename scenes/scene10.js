@@ -100,7 +100,8 @@ class Scene10 extends Phaser.Scene {
             this.physics.pause();
             gameOver = false;
             console.log(timer.loop);
-            userScore += newText;
+            scoreGameOne = newText;
+            userScore += scoreGameOne;
             this.scene.start("sceneEleven");
           }
         }

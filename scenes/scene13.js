@@ -95,7 +95,8 @@ class Scene13 extends Phaser.Scene {
           this.physics.pause();
           this.gameOver = false;
           console.log(timer.loop);
-          userScore += newText;
+          scoreGameTwo += newText;
+          userScore += scoreGameTwo;
           this.scene.start('sceneSixteen');
         }
       }
