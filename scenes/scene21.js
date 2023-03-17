@@ -18,11 +18,14 @@ class Scene21 extends Phaser.Scene {
     var title = new Text(40, 70, 0, 0, "Ton score", this, "title")
     const REAL_SCORE = 0
     try {
+      const name = localStorage.getItem("userName") || "Anonyme"
+      const email = localStorage.getItem("userMail") || "anonymous@miecolo.com"
+
       const captureScore = await fetch(`${API_URL}/save-score`, {
         method: "POST",
         body: JSON.stringify({
-          name: localStorage.getItem("userName") || "Anonyme",
-          email: localStorage.getItem("userMail") || "anonymous@miecolo.com",
+          name: name,
+          email: email,
           // @todo
           score: REAL_SCORE || 0,
         }),
@@ -30,7 +33,11 @@ class Scene21 extends Phaser.Scene {
       if (captureScore.ok) {
         const { leaderboard } = await captureScore.json()
         console.log(leaderboard)
-        console.log("Succesfully saved score")
+        console.log("Succesfully saved score", {
+          name,
+          email,
+          score: REAL_SCORE,
+        })
 
         const leaderboardElements = leaderboard.slice(0, 10).map((e, i) => {
           new Text(leaderboardOffset, 125 + i * 35, 0, 0, `${i + 1}. ${truncate(e.name, 20)}`, this, "text")
