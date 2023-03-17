@@ -14,7 +14,6 @@ class Scene21 extends Phaser.Scene {
   async create() {
     const leaderboardOffset = 400
     var leaderboardTitle = new Text(leaderboardOffset, 70, 0, 0, "Classement", this, "title")
-    var title = new Text(40, 70, 0, 0, "Ton score", this, "title")
     const REAL_SCORE = userScore
     try {
       const name = localStorage.getItem("userName") || "Anonyme"
