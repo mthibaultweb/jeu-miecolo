@@ -10,7 +10,7 @@ class Scene21 extends Phaser.Scene {
   }
 
   preload() {}
-
+ 
   async create() {
     const leaderboardOffset = 400
 
@@ -44,9 +44,25 @@ class Scene21 extends Phaser.Scene {
           new Text(leaderboardOffset + 300, 125 + i * 35, 0, 0, `${e.score}`, this, "score-leaderboard")
         })
       }
+        var title = new Text(40, 150, 0, 0, 'Ton score: '+userScore, this, 'title');
+        const buttonPlayAgain = new Button(40, 500, 0, 0, 'Rejouer', this, () => {
+            userScore = 0;
+            scoreGameOne = 0;
+            scoreGameTwo = 0;
+            this.scene.start("sceneOne")
+        });
+        const buttonInit = new Button(200, 500, 0, 0, 'Réinitialiser (demo)', this, () => {
+            localStorage.clear('userName');
+            localStorage.removeItem('userMail');
+            userName = null;
+            userMail = null;
+            userScore = 0;
+            scoreGameOne = 0;
+            scoreGameTwo = 0;
+            this.scene.start("sceneOne")
+        });
     } catch (error) {
-      console.log(error)
-    }
+    console.log(error)
 
     const buttonPlayAgain = new Button(40, 500, 0, 0, "Rejouer", this, () => this.scene.start("sceneOne"))
     const buttonInit = new Button(200, 500, 0, 0, "Réinitialiser (demo)", this, () => {

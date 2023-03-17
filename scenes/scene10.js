@@ -2,7 +2,6 @@ let cursors;
 class Scene10 extends Phaser.Scene {
     constructor() {
         super("sceneTen");
-        let player;
     }
       
       preload() {
@@ -33,19 +32,31 @@ class Scene10 extends Phaser.Scene {
         // Add frelons
         this.frelons = this.physics.add.group();
       
-        // Add polens
-        this.polens = this.physics.add.group();
-      
-        this.polens.create(51, 214, 'polen').setScale(Phaser.Math.FloatBetween(0.15, 0.25)); // ?? .refreshBody();
-        this.polens.create(730, 167, 'polen').setScale(Phaser.Math.FloatBetween(0.15, 0.25));
-        this.polens.create(268, 438, 'polen').setScale(Phaser.Math.FloatBetween(0.15, 0.25));
-        this.polens.create(613, 366, 'polen').setScale(Phaser.Math.FloatBetween(0.15, 0.25));
-        this.polens.create(383, 236, 'polen').setScale(Phaser.Math.FloatBetween(0.15, 0.25));
-      
         // Add bee
         this.bee = this.physics.add.sprite(450, 500, 'bee');
         this.bee.setCollideWorldBounds(true);
         this.bee.setScale(0.2);//.refreshBody(); ????????? // on change la taille et on maj le moteur qui gere les collisions
+      
+        // Add polens
+        this.polens = this.physics.add.group();
+      
+        function spawnPolen(x,y,p){
+          var beeRadiusLimit = 50
+          var randspawnx = Phaser.Math.Between(50, 750)
+          var randspawny = Phaser.Math.Between(50, 550)
+          // si le polene est dans la boite englobante autour de l'abeille alors on recherche d'autres coordonnées pour le polene
+          if ( ((x-beeRadiusLimit) < randspawnx && randspawnx < (x+beeRadiusLimit)) || 
+               ((y-beeRadiusLimit) < randspawny && randspawny < (y+beeRadiusLimit)) ){
+            spawnPolen(x,y,p)
+          } else {
+            p.create(randspawnx, randspawny, 'polen').setScale(Phaser.Math.FloatBetween(0.15, 0.25));
+          }
+        }
+    
+         // ?? .refreshBody();
+         for (i=0; i<10; i++) {
+          spawnPolen(this.bee.x, this.bee.y, this.polens);
+         }
       
         // ANIMATIONS
         ////////////////////////////////////////////////////////
@@ -72,18 +83,36 @@ class Scene10 extends Phaser.Scene {
       
         // bee score
         var score = 0;
+        var newText;
         this.spacebarLength = 0;
-        this.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
-      
-        // bee collect polens on collision
-        function collectpolen(bee, polen) {
-          polen.disableBody(true, true);
-          score += Phaser.Math.Between(1, 1);
-          this.scoreText.setText('Score: ' + score);
+        var scoreText = this.add.text(16, 16, 'Score: 100', { fontSize: '32px', fill: '#FDB833' });
+
+        // set up timer
+        var timer = this.time.addEvent({
+          delay: 1000, // 1 second
+          loop: true,
+          callback: function() {
+            score += 1;  
+            scoreText.setText('Score: ' + score);
+            newText = 100 - score;
+            if (newText < 1) {
+              newText = 1;
+            }
+            scoreText.setText('Score: ' + newText);
+          }
+        });
+
+        // bee collects pollen on collision
+        function collectpolen(bee, pollen) {
+          pollen.disableBody(true, true);
           this.spacebarLength++;
-          if (this.spacebarLength === 5) {
+          if (this.spacebarLength === 10) {
+            timer.loop = false;
             this.physics.pause();
             gameOver = false;
+            console.log(timer.loop);
+            scoreGameOne = newText;
+            userScore += scoreGameOne;
             this.scene.start("sceneEleven");
           }
         }
@@ -97,9 +126,8 @@ class Scene10 extends Phaser.Scene {
             .setBounce(1)
             .setCollideWorldBounds(true)
             .setVelocity(Phaser.Math.Between(-100, 100), Phaser.Math.Between(-100, 100)));
-      
         }
-      
+
         // bee hit frelons on collision
         function hitfrelon(b) {
           this.physics.pause();
