@@ -20,6 +20,7 @@ var config = {
       }
     },
     scene: [
+      Scene10,
       Scene1,
       Scene2,
       Scene3,
@@ -29,7 +30,6 @@ var config = {
       Scene7,
       Scene8,
       Scene9,
-      Scene10,
       Scene11,
       Scene12,
       Scene13,
