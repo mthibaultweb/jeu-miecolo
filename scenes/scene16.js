@@ -15,15 +15,15 @@ class Scene16 extends Phaser.Scene {
         this.guide = this.add.image(350, 265, 'happy').setOrigin(0,0);
 
         this.title = 'Bravo !';
-        this.desc1 = 'L\'abeille a réussi à réduire la température';
-        this.desc2 = 'de la ruche en battant des ailes.';
-        this.desc3 = 'Retournons à la ruche !';
+        this.desc1 = 'L\'abeille a réussi à réduire la température de la ruche';
+        this.desc2 = 'en battant des ailes. Ton score pour ce mini-jeu';
+        this.desc3 = 'est de '+scoreGameTwo+' points. Retournons à la ruche !';
         this.btnText = 'Continuer';
 
         const text1 = new Text(50, 50, 0, 0, this.title, this, 'title');
         const text2 = new Text(50, 100, 0, 0, this.desc1, this);
         const text3 = new Text(50, 130, 0, 0, this.desc2, this);
-        const text4 = new Text(50, 180, 0, 0, this.desc3, this);
+        const text4 = new Text(50, 160, 0, 0, this.desc3, this);
         
         const button = new Button(40, 500, 0, 0, this.btnText, this, () => this.scene.start('sceneSeventeen'));
         if(userMail !== null) {
