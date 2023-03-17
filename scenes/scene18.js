@@ -36,12 +36,12 @@ class Scene18 extends Phaser.Scene {
         this.barrePoids = this.add.image(635, 105, 'barre').setOrigin(0,0);
         this.jaugePoids = this.add.image(620, 50, 'jaugePoids').setOrigin(0,0);
         const labelPoids = new Text(720, 20, 0.5, 0, 'Poids', this, 'white');
-        const Poids = new Text(720, 63, 0.5, 0, '35kg', this);
+        const Poids = new Text(720, 63, 0.5, 0, '42kg', this);
 
         this.barreTemperature = this.add.image(635, 215, 'barre').setOrigin(0,0);
         this.jaugeTemperature = this.add.image(620, 160, 'jaugeTemperature').setOrigin(0,0);
         const labelTemperature = new Text(720, 130, 0.5, 0, 'Température', this, 'white');
-        const Temperature = new Text(720, 173, 0.5, 0, '33°C', this);
+        const Temperature = new Text(720, 173, 0.5, 0, '34°C', this);
 
         this.barreHumidite = this.add.image(635, 325, 'barre').setOrigin(0,0);
         this.jaugeHumidite = this.add.image(620, 270, 'jaugeHumidite').setOrigin(0,0);

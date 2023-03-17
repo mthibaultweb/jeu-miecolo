@@ -34,7 +34,7 @@ class Scene12 extends Phaser.Scene {
         const labelHumidite = new Text(720, 240, 0.5, 0, 'Humidité', this, 'white');
         const labelGPS = new Text(720, 350, 0.5, 0, 'Données GPS', this, 'white');
 
-        const Temperature = new Text(720, 173, 0.5, 0, '33°C', this);
+        const Temperature = new Text(720, 173, 0.5, 0, '38°C', this);
         const Humidite = new Text(720, 283, 0.5, 0, '56%', this);
         const GPS = new Text(720, 393, 0.5, 0, 'R.A.S.', this);
         
@@ -44,7 +44,7 @@ class Scene12 extends Phaser.Scene {
         this.barrePoids = this.add.image(635, 105, 'barre').setOrigin(0,0);
         this.jaugePoids = this.add.image(620, 50, 'jaugePoids').setOrigin(0,0);
         const labelPoids = new Text(720, 20, 0.5, 0, 'Poids', this, 'white');
-        const Poids = new Text(720, 63, 0.5, 0, '35kg', this);
+        const Poids = new Text(720, 63, 0.5, 0, '42kg', this);
 
         this.synthe = this.add.image(25, 25, 'synthe').setOrigin(0,0).setScale(1,0.5);
         this.ruche = this.add.image(150, 300, 'ruche').setOrigin(0,0).setScale(0.4);
