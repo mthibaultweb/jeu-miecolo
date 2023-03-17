@@ -72,18 +72,35 @@ class Scene10 extends Phaser.Scene {
       
         // bee score
         var score = 0;
+        var newText;
         this.spacebarLength = 0;
-        this.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
-      
-        // bee collect polens on collision
-        function collectpolen(bee, polen) {
-          polen.disableBody(true, true);
-          score += Phaser.Math.Between(1, 1);
-          this.scoreText.setText('Score: ' + score);
+        var scoreText = this.add.text(16, 16, 'Score: 100', { fontSize: '32px', fill: '#FDB833' });
+
+        // set up timer
+        var timer = this.time.addEvent({
+          delay: 1000, // 1 second
+          loop: true,
+          callback: function() {
+            score += 1;  
+            scoreText.setText('Score: ' + score);
+            newText = 100 - score;
+            if (newText < 1) {
+              newText = 1;
+            }
+            scoreText.setText('Score: ' + newText);
+          }
+        });
+
+        // bee collects pollen on collision
+        function collectpolen(bee, pollen) {
+          pollen.disableBody(true, true);
           this.spacebarLength++;
           if (this.spacebarLength === 5) {
+            timer.loop = false;
             this.physics.pause();
             gameOver = false;
+            console.log(timer.loop);
+            userScore += newText;
             this.scene.start("sceneEleven");
           }
         }
@@ -99,7 +116,7 @@ class Scene10 extends Phaser.Scene {
             .setVelocity(Phaser.Math.Between(-100, 100), Phaser.Math.Between(-100, 100)));
       
         }
-      
+
         // bee hit frelons on collision
         function hitfrelon(b) {
           this.physics.pause();

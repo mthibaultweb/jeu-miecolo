@@ -51,10 +51,27 @@ class Scene13 extends Phaser.Scene {
 
     // Player score
     var score = 0;
+    var newText;
     this.spacebarCount = 0;
     this.spacebarLength = 0;
-    this.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
+    var scoreText = this.add.text(16, 16, 'Score: 100', { fontSize: '32px', fill: '#000' });
     var spaceBar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+
+    // set up timer
+    var timer = this.time.addEvent({
+      delay: 1000, // 1 second
+      loop: true,
+      callback: function() {
+        score += 1;  
+        scoreText.setText('Score: ' + score);
+        newText = 100 - score;
+        if (newText < 1) {
+          newText = 1;
+        }
+        scoreText.setText('Score: ' + newText);
+      }
+    });
 
     // Player collect ronds on collision
     function collectRond(player, rond) {
@@ -70,15 +87,15 @@ class Scene13 extends Phaser.Scene {
         console.log(this.spacebarCount);
         if (this.spacebarCount > 2) {
           rond.disableBody(true, true);
-          console.log(score);
-          score += 1;
-          this.scoreText.setText('Score: ' + score);
           this.spacebarCount = 0;
           this.spacebarLength++;
         }
         if (this.spacebarLength === 5) {
+          timer.loop = false,
           this.physics.pause();
           this.gameOver = false;
+          console.log(timer.loop);
+          userScore += newText;
           this.scene.start('sceneSixteen');
         }
       }
