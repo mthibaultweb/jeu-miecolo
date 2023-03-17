@@ -33,7 +33,7 @@ class Scene10 extends Phaser.Scene {
         this.frelons = this.physics.add.group();
       
         // Add bee
-        this.bee = this.physics.add.sprite(450, 500, 'bee');
+        this.bee = this.physics.add.sprite(Phaser.Math.Between(50, 750), Phaser.Math.Between(50, 550), 'bee');
         this.bee.setCollideWorldBounds(true);
         this.bee.setScale(0.2);//.refreshBody(); ????????? // on change la taille et on maj le moteur qui gere les collisions
       

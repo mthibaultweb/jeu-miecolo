@@ -51,7 +51,7 @@ class Scene19 extends Phaser.Scene {
         this.synthe = this.add.image(25, 25, 'synthe').setOrigin(0,0).setScale(1,0.5);
         this.ruche = this.add.image(150, 300, 'ruche').setOrigin(0,0).setScale(0.4);
         
-        const text1 = new Text(50, 50, 0, 0, 'Bon ! et bien tout a l\’air parfait,', this);
+        const text1 = new Text(50, 50, 0, 0, 'Bon ! Et bien tout a l\’air parfait,', this);
         const text2 = new Text(50, 80, 0, 0, 'nous pouvons passer à la récolte !', this);
         
         if(userMail !== null) {
