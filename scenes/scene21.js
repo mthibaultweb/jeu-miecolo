@@ -13,10 +13,9 @@ class Scene21 extends Phaser.Scene {
  
   async create() {
     const leaderboardOffset = 400
-
     var leaderboardTitle = new Text(leaderboardOffset, 70, 0, 0, "Classement", this, "title")
     var title = new Text(40, 70, 0, 0, "Ton score", this, "title")
-    const REAL_SCORE = 0
+    const REAL_SCORE = userScore
     try {
       const name = localStorage.getItem("userName") || "Anonyme"
       const email = localStorage.getItem("userMail") || "anonymous@miecolo.com"
@@ -63,7 +62,7 @@ class Scene21 extends Phaser.Scene {
         });
     } catch (error) {
     console.log(error)
-
+    }
     const buttonPlayAgain = new Button(40, 500, 0, 0, "Rejouer", this, () => this.scene.start("sceneOne"))
     const buttonInit = new Button(200, 500, 0, 0, "Réinitialiser (demo)", this, () => {
       localStorage.clear("userName")
